@@ -10,21 +10,21 @@ public class Lesson6 : MonoBehaviour
   
     void Start()
     {
-        #region ÖªÊ¶µãÒ» »Ø¹Ë¿Í»§¶ËÐèÒª×öµÄÊÂ
-        //1.´´½¨Ì×½Ó×ÖSocket
-        //2.ÓÃConnect·½·¨Óë·þÎñ¶Ë½¨Á¢Á¬½Ó
-        //3.ÓÃSendºÍReceiveÏà¹Ø·½·¨ÊÕ·¢ÏûÏ¢
-        //4.ÓÃShutDown·½·¨ÊÍ·ÅÁ¬½Ó
-        //5.¹Ø±ÕÌ×½Ó×ÖSocket
+        #region ÖªÊ¶ï¿½ï¿½Ò» ï¿½Ø¹Ë¿Í»ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        //1.ï¿½ï¿½ï¿½ï¿½ï¿½×½ï¿½ï¿½ï¿½Socket
+        //2.ï¿½ï¿½Connectï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        //3.ï¿½ï¿½Sendï¿½ï¿½Receiveï¿½ï¿½Ø·ï¿½ï¿½ï¿½ï¿½Õ·ï¿½ï¿½ï¿½Ï¢
+        //4.ï¿½ï¿½ShutDownï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½
+        //5.ï¿½Ø±ï¿½ï¿½×½ï¿½ï¿½ï¿½Socket
         #endregion
 
 
-        #region ÖªÊ¶µã¶þ ÊµÏÖ¿Í»§¶Ë»ù±¾Âß¼­
-        //1.´´½¨Ì×½Ó×ÖSocket
+        #region ÖªÊ¶ï¿½ï¿½ï¿½ Êµï¿½Ö¿Í»ï¿½ï¿½Ë»ï¿½ï¿½ï¿½ï¿½ß¼ï¿½
+        //1.ï¿½ï¿½ï¿½ï¿½ï¿½×½ï¿½ï¿½ï¿½Socket
         Socket socket = new Socket(AddressFamily.InterNetwork,SocketType.Stream,ProtocolType.Tcp);
 
-        //2.ÓÃConnect·½·¨Óë·þÎñ¶Ë½¨Á¢Á¬½Ó
-        //È·¶¨·þÎñ¶ËIPºÍ¶Ë¿Ú
+        //2.ï¿½ï¿½Connectï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        //È·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½IPï¿½Í¶Ë¿ï¿½
         IPEndPoint ip = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8080);
         try
         {
@@ -34,33 +34,33 @@ public class Lesson6 : MonoBehaviour
         {
             if(e.ErrorCode == 10061)
             {
-                print("·þÎñÆ÷¾Ü¾øÁ¬½Ó");
+                print("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü¾ï¿½ï¿½ï¿½ï¿½ï¿½");
             }
             else
             {
-                print("·þÎñÆ÷Á¬½ÓÊ§°Ü" + e.ErrorCode);
+                print("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½" + e.ErrorCode);
             }
 
             return;
 
         }
 
-        //3.ÓÃSendºÍReceiveÏà¹Ø·½·¨ÊÕ·¢ÏûÏ¢
-        //½ÓÊÕÊý¾Ý
+        //3.ï¿½ï¿½Sendï¿½ï¿½Receiveï¿½ï¿½Ø·ï¿½ï¿½ï¿½ï¿½Õ·ï¿½ï¿½ï¿½Ï¢
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         byte[] Rbytes = new byte[1024];
 
         int receiveNum = socket.Receive(Rbytes);
 
-        print("ÊÕµ½·þÎñÆ÷ÏûÏ¢:"+Encoding.UTF8.GetString(Rbytes,0,receiveNum));
+        print("ï¿½Õµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢:"+Encoding.UTF8.GetString(Rbytes,0,receiveNum));
 
-        //·¢ËÍÏûÏ¢
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
    
-        socket.Send(Encoding.UTF8.GetBytes("ÄãºÃ£¬ÎÒÊÇ¿Í»§¶ËÀÖÎ¬"));
+        socket.Send(Encoding.UTF8.GetBytes("ï¿½ï¿½Ã£ï¿½ï¿½ï¿½ï¿½Ç¿Í»ï¿½ï¿½ï¿½ï¿½ï¿½Î¬"));
 
-        //4.ÓÃShutDown·½·¨ÊÍ·ÅÁ¬½Ó
+        //4.ï¿½ï¿½ShutDownï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½
         socket.Shutdown(SocketShutdown.Both);
 
-        //5.¹Ø±ÕÌ×½Ó×ÖSocket
+        //5.ï¿½Ø±ï¿½ï¿½×½ï¿½ï¿½ï¿½Socket
         socket.Close();
 
         #endregion
